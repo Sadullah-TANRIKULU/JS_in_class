@@ -1,23 +1,30 @@
+// program to generate random number
 const randNum = Math.ceil(Math.random() * 10);
-const letter = document.getElementById("x").innerHTML;
+
+console.log(randNum);
 
 
 // program to generate random strings
-
 // declare all characters
+// use all characters length to get a random number
+// reach each character with for loop
+// up to length you want loop it
+// give how many loop times you want and get a random string
+// 
+
 const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-function generateString(length) {
-    let result = ' ';
-    const charactersLength = characters.length;
-    for ( let i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+function genString(length) {
+    let result = ``;
+    for (let i = 0; i < length; i++) {
+        let charlength = characters.length;
+        result += characters.charAt(Math.ceil(Math.random() * charlength));
     }
-
     return result;
+    
 }
 
-console.log(generateString(5));
+console.log(genString(9));
 
-document.write(letter);
-console.log(randNum);
+
+
+

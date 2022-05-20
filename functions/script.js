@@ -156,12 +156,25 @@ console.log("script.js is running...");
 // const oddEven = (n) => n % 2 ? `odd` : `even`;  // n%2 ya 1 ya 0 verir, 1 true 0 false döndürür.
 // console.log(oddEven(24));
 
-const r = Number(prompt(`enter radius : `));
-const h = Number(prompt(`enter height : `));
+// const r = Number(prompt(`enter radius : `));
+// const h = Number(prompt(`enter height : `));
 
-const calcVolume = (r, h) => Math.PI * r * r * h;
-console.log(`cylinder volume : `, Math.trunc(calcVolume(r, h))); // trunc ondalık kısmı atar
-console.log(`cylinder volume : `, calcVolume(r, h).toFixed(3));  // toFixed parantezindeki sayı kadar ondalık basamak getirir ama STRING e çevirir.!!!
+// const calcVolume = (r, h) => Math.PI * r * r * h;
+// console.log(`cylinder volume : `, Math.trunc(calcVolume(r, h))); // trunc ondalık kısmı atar
+// console.log(`cylinder volume : `, calcVolume(r, h).toFixed(3));  // toFixed parantezindeki sayı kadar ondalık basamak getirir ama STRING e çevirir.!!!
+
+// SORU2: kareAl, küpAl, üsAl şeklinde üç adet farklı arrow fonksiyonu tanımlayın. Bu fonksiyonların ana programdan gereken parametreleri alarak sonuçları ana programa döndürmeleri gerekmektedir.
+
+const getSquare = (g) => (g ** 2);
+console.log(getSquare(3));
+
+const getCube = (t) => (t ** 3);
+console.log(getCube(4));
+
+const getPower = (h, p) => (h ** p);
+console.log(getPower(9, 2));
+
+
 
 
 
