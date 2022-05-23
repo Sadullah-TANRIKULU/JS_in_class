@@ -158,15 +158,33 @@ console.log("%cscript.js is running...", `color: lightblue; background-color: br
 // console.log(wordee);  // harf harf array e çevirdi
 // console.log(wordee.join(""));  // tekrar bir string e çevirdi
 
-let numberArray = [1, 2, 11, 23, 65, 64, 9, 78, 20];
-numberArray.sort((a, b) => (a - b));  // sayılarda doğru yöntem bu
-console.log(numberArray);
-console.log(numberArray.sort()); // ASCII ye göre sıralar sayılarda yanlış sonuç verir.
+let numberArray = [1, 2, 11, 23, 65, 64, 9, 78, 20, 5, 6, 9, 4, `9`, `8`, `7`, `33`];
+let stringArray = [`lkj`, `jhg`, `mnb`];
+// numberArray.sort((a, b) => (a - b));  // sayılarda doğru yöntem bu
+// console.log(numberArray);
+// console.log(numberArray.sort()); // ASCII ye göre sıralar sayılarda yanlış sonuç verir.
+
+console.log(numberArray.length);
+console.log(numberArray.unshift(9), numberArray);
+console.log(numberArray.push(`11`), numberArray);
+console.log(numberArray.pop(), numberArray);
+console.log(numberArray.shift(), numberArray);
+
+console.log(stringArray.toString(), stringArray);
+console.log(numberArray.reverse());
+
+console.log(stringArray.reverse().reverse());
+
+const sortedNumberArray = numberArray.sort((a, b) => (a - b));
+console.log(sortedNumberArray);
 
 
+console.log(sortedNumberArray.splice(5, 9, 'dd', 'kk'));
+console.log(sortedNumberArray);
 
+console.log(sortedNumberArray.indexOf(/green/i));  // regex işe yaramadı
 
-
+console.log(stringArray.lastIndexOf('lkj', 2));
 
 
 
