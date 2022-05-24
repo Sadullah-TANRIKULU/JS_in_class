@@ -178,12 +178,11 @@ console.log(`%cscript.js is running...`, `background-color: black; color: lightg
 //     console.log(fiyatlar);
 // })
 
-//*-------------- ÖDEV -------------------
-//* fiyatlar dizisinde her bir fiyata %10 zam yapalım.
+
 
 
 // map() yeni bir dizi döndürür orjinali değiştirmez, array i modifiye için kullanılır
-const softLangs = new Array(`python`, `javascript`, `golang`, `swift`, `unity`, `C#`);
+// const softLangs = new Array(`python`, `javascript`, `golang`, `swift`, `unity`, `C#`);
 
 // const upperSoftLangs = softLangs.map((x) => x.toUpperCase());  // locale olmazsa ingilizce chars olur
 // const lowerSoftLangs = softLangs.map((x) => x.toLocaleLowerCase());
@@ -202,8 +201,8 @@ const softLangs = new Array(`python`, `javascript`, `golang`, `swift`, `unity`, 
 
 
 // =================PIPELINE(CHAINING)==============================
-softLangs.filter((x) => x === `golang` ).map((x) => x.toLocaleUpperCase())
-.forEach((x) => console.log(x));
+// softLangs.filter((x) => x === `golang` ).map((x) => x.toLocaleUpperCase())
+// .forEach((x) => console.log(x));
 
 // map() return eder ama arkasından forEach gelince return biter sadece console dan okuruz
 
