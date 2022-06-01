@@ -39,7 +39,7 @@ const javascriptKontrol = () => {
     document.querySelectorAll('ul li').forEach((dil) => {
         const kucukHarf = dil.textContent.toLowerCase();
         if(kucukHarf === `javascript`) {
-            // dil.className = 'red';
+            // dil.className = 'red';    // eski class ları siler, classList silmez
             dil.setAttribute('class', 'red');
 
         }
