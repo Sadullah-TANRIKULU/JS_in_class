@@ -158,43 +158,134 @@ console.log("%cscript.js is running...", `color: lightblue; background-color: br
 // console.log(wordee);  // harf harf array e çevirdi
 // console.log(wordee.join(""));  // tekrar bir string e çevirdi
 
-let numberArray = [1, 2, 11, 23, 65, 64, 9, 78, 20, 5, 6, 9, 4, `9`, `8`, `7`, `33`];
-let stringArray = [`lkj`, `jhg`, `mnb`];
+// let numberArray = [1, 2, 11, 23, 65, 64, 9, 78, 20, 5, 6, 9, 4, `9`, `8`, `7`, `33`];
+// let stringArray = [`lkj`, `jhg`, `mnb`];
 // numberArray.sort((a, b) => (a - b));  // sayılarda doğru yöntem bu
 // console.log(numberArray);
 // console.log(numberArray.sort()); // ASCII ye göre sıralar sayılarda yanlış sonuç verir.
 
-console.log(numberArray.length);
-console.log(numberArray.unshift(9), numberArray);
-console.log(numberArray.push(`11`), numberArray);
-console.log(numberArray.pop(), numberArray);
-console.log(numberArray.shift(), numberArray);
+// console.log(numberArray.length);
+// console.log(numberArray.unshift(9), numberArray);
+// console.log(numberArray.push(`11`), numberArray);
+// console.log(numberArray.pop(), numberArray);
+// console.log(numberArray.shift(), numberArray);
 
-console.log(stringArray.toString(), stringArray);
-console.log(numberArray.reverse());
+// console.log(stringArray.toString(), stringArray);
+// console.log(numberArray.reverse());
 
-console.log(stringArray.reverse().reverse());
+// console.log(stringArray.reverse().reverse());
 
-const sortedNumberArray = numberArray.sort((a, b) => (a - b));
-console.log(sortedNumberArray);
-
-
-console.log(sortedNumberArray.splice(5, 9, 'dd', 'kk'));
-console.log(sortedNumberArray);
-
-console.log(sortedNumberArray.indexOf(/green/i));  // regex işe yaramadı
-
-console.log(stringArray.lastIndexOf('lkj', 2));
+// const sortedNumberArray = numberArray.sort((a, b) => (a - b));
+// console.log(sortedNumberArray);
 
 
+// console.log(sortedNumberArray.splice(5, 9, 'dd', 'kk'));
+// console.log(sortedNumberArray);
+
+// console.log(sortedNumberArray.indexOf(/green/i));  // regex işe yaramadı
+
+// console.log(stringArray.lastIndexOf('lkj', 2));
 
 
+// const kisiler = [
+//         {
+//           name: 'Ahmet',
+//           surname: 'Can',
+//           job: 'developer',
+//           age: 30,
+//         },
+//         {
+//           name: 'Mehmet',
+//           surname: 'Baki',
+//           job: 'tester',
+//           age: 35,
+//         },
+//         {
+//           name: 'Nur',
+//           surname: 'Ersan',
+//           job: 'team lead',
+//           age: 40,
+//         },
+//         {
+//           name: 'Merve',
+//           surname: 'Veli',
+//           job: 'developer',
+//           age: 26,
+//         },
+      
+//         {
+//           name: 'Ruzgar',
+//           surname: 'Kuzey',
+//           job: 'tester',
+//           age: 24,
+//         },
+//     ];
+
+// kisiler.forEach((v) => console.log(v.job));
+
+// const newAges = kisiler.map((x) => x.age + 1);
+// console.log(newAges);
+
+// const kisilerFull = kisiler.map((kisi) => ({
+//     fullname: kisi.name.toUpperCase() + " " + kisi.surname.toUpperCase(), 
+//     age: kisi.age + 5
+// }));
+
+// console.log(kisilerFull);
+
+// const array = [];
+// kisiler.map((x) => x.name + " " + x.surname);
+
+// console.log(array);
+
+// // isimleri birleştir, küçük harf yap, araya - koy, yaşı 1 küçült
+
+// const adVeYasBirlikte = kisilerFull.map((x) => ({
+//     fullname: x.fullname.toLocaleLowerCase() + " " + x.age,
+//     age: --x.age
+// }));
+
+// console.log(adVeYasBirlikte);
+
+// const array = new Array();
+// kisiler
+// .filter((x) => (x.age < 33))
+// .forEach((x) => array.push(x.name));
 
 
+// kisiler.filter((x) => x.job === 'developer').map((x) => array.push(x.name + " " + x.age))
 
+// console.log(array);
 
+//========= This is an interview question asked by Google. ===========
 
+// Given a list of numbers and a number k, return whether any two numbers from the list add up to k.
 
+// For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
+// pseudocode:
+// listede her bir elemana ulaş
+// 
+
+let k = 17;
+const givenList = [10, 15, 3, 7];
+
+let control = function() {
+  for (let i = 0; i < givenList.length; i++) {
+    for (let ii = 0; ii < givenList.length; ii++) {
+      if ((givenList[i] + givenList[ii]) === k) {
+        console.log(givenList[i], givenList[ii]);
+        console.log(true);
+        
+      } else {
+        console.log(false);
+        
+      }
+    }
+  };
+  return true;
+}
+
+console.log(control());
 
 
 
