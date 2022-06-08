@@ -55,7 +55,14 @@ window.onload = () => {
 }
 
 
+// örnek
+// It's showing up as '[object HTMLDivElement]' because you haven't serialized the object before storing it. Keep in mind that LocalStorage only stores string key-value pairs so whatever you store must be a string.
 
+// If what you were expecting is the html of the element, try:
+
+// var table = document.getElementsByClassName('table')[0]
+// localStorage.setItem("mykey", table.outerHTML)
+// console.log(localStorage)
 
 
 
