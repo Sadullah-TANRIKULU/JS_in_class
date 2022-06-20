@@ -37,7 +37,7 @@
 ///////////ASYNCRON///////////////
 // setTimeout(()=>{      // non-blocking code // setTimeout macrotask
 //     console.log("Selamun Aleykum");
-// }, 1000); // 1sn sonra fonksiyonu çalıştırsın  // 0 ms de olsa macrotask microtask ı beklemek zorunda hertürlü sonra çalışır // yazdığımız sayı minimum rakamdır fazlasını da bekletebilir
+// }, 1000); // 1sn sonra fonksiyonu çalıştırsın  // 0 ms de olsa macrotask microtask ı beklemek zorunda, hertürlü sonra çalışır // yazdığımız sayı minimum rakamdır fazlasını da bekletebilir
 
 // // microtask kuyruğu
 // console.log("Aleykum Selam");
@@ -95,7 +95,7 @@
 //? SYTNAX
 //?----------
 //* 1- Ilk olarak new Promise() constructor'i ile yeni bir promise nesnesi olusturulur,
-//* 2- constructor'a asil islemin yapilmasini saglayan bir executor fonksiyion verilir.
+//* 2- constructor'a asil islemin yapilmasini saglayan bir executor fonksiyon verilir.
 //* 3- Executor fonksiyona ise 2 argument gecirilir: resolve ve reject fonksiyonlari
 //* 4- resolve fonksiyonu promise'in basariyla bittiginda, reject ise
 //*    basarisizlikla bittiginde isletilirler.
@@ -109,7 +109,7 @@
 
 //? Bir Promise asagidaki state(durumlari) icerebilir:
 //* pending: ilk state, fulfilled veya rejected olmayan
-//* fulfilled:islem basariyla tamamlandini gosteren state.
+//* fulfilled:islem basariyla tamamlandigini gosteren state.
 //* rejected: islemin basarisizlikla tamamlandigini gosteren state
 
 //! Bir promise bir degerler tamamlanabilir yada bir sebeple (hata) iptal edilebilir.
@@ -197,33 +197,123 @@
 // fetch(parametre)  parametre zorunludur ve bir path dir
 
 
-fetch('https://api.github.com/users')
-.then((res) => {
-    // error handling şart
-    if (!res.ok) {
-        throw new Error(`sth went wrong: ${res.status}`);
-    }
-    return res.json();
-})
-.then((data) => updateDom(data))
-.catch((err)=> console.log(err));  // default GET tir
+// fetch('https://api.github.com/users')
+// .then((res) => {
+//     // error handling şart
+//     if (!res.ok) {
+//         throw new Error(`sth went wrong: ${res.status}`);
+//     }
+//     return res.json();           // gelen data ham old. için .json ile dönüştürmek gerekiyor
+// })
+// .then((data) => updateDom(data))
+// .catch((err)=> console.log(err));  // default GET tir
 
-// server a gönderirken stringify() gerekiyor
+// // server a gönderirken stringify() gerekiyor
 
-// setTimeout(console.log(dataFromAPI), 2000); microtask old.için önce yazdırılıyor
+// // setTimeout(console.log(dataFromAPI), 2000); microtask old.için önce yazdırılıyor
 
-const updateDom = (data) => {
-    console.log(data);
-    const userDiv = document.querySelector('.users');
+// const updateDom = (data) => {
+//     console.log(data);
+//     const userDiv = document.querySelector('.users');
 
-    data.forEach(user => {
-        const{login, avatar_url, html_url} = user;
-        userDiv.innerHTML += `
-        <h2 class='text-warning'>NAME:${login}</h2>
-        <img src=${avatar_url} width='50%' alt='' />
-        `        
-    });
-}
+//     data.forEach(user => {
+//         const{login, avatar_url, html_url} = user;
+//         userDiv.innerHTML += `
+//         <h2 class='text-warning'>NAME:${login}</h2>
+//         <img src=${avatar_url} width='50%' alt='' />
+//         <h3>HTML_URL:${user.html_url}</h3>
+//         `        
+//     });
+// }
+
+// fetch('https://api.github.com/users')
+//   .then((res) => {
+//     //! error handling
+//     if (!res.ok) {
+//       throw new Error(`Something went wrong: ${res.status}`);
+//     }
+//     return res.json();
+//   })
+//   .then((data) => updateDom(data))
+//   .catch((err) => console.log(err));
+
+// const updateDom = (data) => {
+//   const userDiv = document.querySelector('.users');
+
+//   data.forEach((user) => {
+//     const { login, avatar_url, html_url } = user;
+//     userDiv.innerHTML += `
+//     <h2 class="text-warning">NAME:${login}</h2>
+//     <img src=${avatar_url} width="50%" alt="" />
+//     <h3>HTML_URL:${user.html_url}</h3>
+//   `;
+//   });
+// };
+
+
+
+//*===============================================================
+//*                   4- ASYNC-AWAIT
+//*===============================================================
+//? Async-Await ECMAScript 2017 ile Javascript diline eklenmistir.
+//? Aslinda Promise yapisinin syntax olarak basitlestirilmis halidir.
+//? Bu baglamda sentetik seker benzetmesi yapilabilir.
+
+//* Bir fonskiyonu async hale getirmek icin fonksiyon keyword'nun onune
+//* asyn keyword'u eklenir.
+
+//* Bir async fonksiyon icerisinde yapilan istegin cevabinin
+//* beklenmesi await keyword'u ile saglanir.
+
+//* Aslinda dizilis olarak senkron mantiga benzeyen kod yazarak Asenkron
+//* kod yazmayı mumkun kilar.
+
+//* Await, promise-temelli herhangi bir fonksiyonun onune getirilerek getirildigi
+//* satirdaki kodun durudurulmasini saglar. Yapilan istek yerine getirilip sonuc
+//* degerlerinin dondurulmesine ile kodun calismasi devam eder.
+
+// let hata = false;
+// const getUsers = async function () {
+//   try {
+//     const res = await fetch('https://api.github.com/users');
+//     if (!res.ok) {
+//       hata = true;
+//       // throw new Error(`Something went wrong:${res.status}`);
+//     }
+//     const data = await res.json();
+//     updateDom(data);
+//   } catch (error) {
+//     console.log(error);
+//   } finally {
+//     hata = false;
+//   }
+// };
+
+// getUsers();
+
+// const updateDom = (data) => {
+//   const userDiv = document.querySelector('.users');
+  
+
+//   if (hata) {
+//     userDiv.innerHTML = `<h1 class="text-danger">Data can not be fetched</h1>
+//     <img src="./img/404.png" alt="" />
+//     `;
+//   } else {
+//     data.forEach((user) => {
+//       //!destr
+//       const { login, avatar_url, html_url } = user;
+//       userDiv.innerHTML += `
+//     <h2 class="text-warning">NAME:${login}</h2>
+//     <img src=${avatar_url} width="50%" alt="" />
+//     <h3>HTML_URL:${html_url}</h3>
+//   `;
+//     });
+//   }
+// };
+
+
+
 
 
 
