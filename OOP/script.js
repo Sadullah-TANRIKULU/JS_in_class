@@ -83,7 +83,7 @@
 // function Book(title, author) {
 //     this.title = title;
 //     this.author = author;
-//     const getMessage = function(){
+//     this.getMessage = function(){
 //      `to my love
 //      ${this.title} was written by ${this.author}`;
 //     }  
@@ -203,14 +203,14 @@
 //! icerisinde tanimlanan public (genel) erisimli getter ve setter metotlar
 //! kullanilir.
 
-//! Private metotlara ise class disarisindan da eriselemez.
-//! Private metotlara ancak class icerisindeki diger metotlar ile erisilebiler.
+//! Private metotlara ise class disarisindan da erişilemez.
+//! Private metotlara ancak class icerisindeki diger metotlar ile erisilebilir.
 
 // static counter; yazarsak counter class ın static alanına atılır dolayısıyla class dan üretilmiş mesela book1.counter şeklinde erişilemez.
 // sadece Book.counter şeklinde erişilebilir.
 
 class Book {
-    static counter = 0; // static property yazmazsak parametre olarak çağırmak gerekir, static property hepsini kapsar, class ismiyle çağrılır
+    static counter = 0; // static property yazmazsak parametre olarak çağırmak gerekir, static property hepsini kapsar, class ismiyle çağrılır Book.counter++ gibi
     #id; // private property
     constructor(title, author, year) {
       this.title = title;
@@ -236,7 +236,7 @@ class Book {
     getId() {   // private id okumak için getter metotları uygulanır
         return this.#id;
     }
-    setId(id) {   // private id okumak için getter metotları uygulanır
+    setId(id) {   // private id oluşturmak için setter metotları uygulanır
         this.#id = id;
     }
 
